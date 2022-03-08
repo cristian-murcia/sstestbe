@@ -12,5 +12,5 @@ export class TableDataThree {
 
     @Column()
     @IsDate()
-    t3c4: Date;
+    t3c3: Date;
 }

@@ -25,6 +25,7 @@ async function bootstrap() {
   SwaggerModule.setup('api/doc', app, document);
 
   await app.listen(3000);
+  app.enableCors();
 
   // eslint-disable-next-line prettier/prettier
   if (module.hot) {

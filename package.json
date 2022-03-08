@@ -1,10 +1,10 @@
 {
   "name": "sstest-be",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "El api permite consultar esquema de tablas y realizar un crud de los registros de las tablas",
+  "author": "Cristian Arnulfo Murcia  Guzmán",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",

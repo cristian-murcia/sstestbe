@@ -1,2 +1,5 @@
-export * from './column-table';
-export * from './table';
+export * from './tableDataOne';
+export * from './tableDataThree';
+export * from './tableDataTwo';
+export * from './tableStructure';
+export * from './tableType';

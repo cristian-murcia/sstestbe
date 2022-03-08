@@ -5,7 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
 import { HttpExceptionFilter } from './shared/exceptions/exception-standar';
 import { ConnectionService } from './database/connection.service';
-import { TableModule } from './table/table.module';
+import { TableModule } from './modules/table/table.module';
+import { DataTableOneModule } from './modules/dataTableOne/data-table.module';
+import { DataTableTwoModule } from './modules/dataTableTwo/data-table.module';
 
 @Module({
   imports: [
@@ -14,6 +16,8 @@ import { TableModule } from './table/table.module';
       useClass: ConnectionService
     }),
     TableModule,
+    DataTableOneModule,
+    DataTableTwoModule,
   ],
   controllers: [],
   providers: [

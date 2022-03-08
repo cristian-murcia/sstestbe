@@ -1,9 +1,9 @@
 import { MaxLength, } from 'class-validator';
 import { Column, Entity, IsNull, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Table } from './table';
+import { TableType } from './tableType';
 
-@Entity('column')
-export class Columns {
+@Entity('TableStructure')
+export class TableStructure {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -20,11 +20,12 @@ export class Columns {
     format: string;
 
     @Column()
-    required: boolean;
+    @MaxLength(1)
+    required: number;
 
     @ManyToOne(
-        type => Table,
-        table => table.id
+        type => TableType,
+        tableType => tableType.id
     )
     idTable: number
 }

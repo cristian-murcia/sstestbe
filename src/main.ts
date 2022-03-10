@@ -1,3 +1,4 @@
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
@@ -7,7 +8,7 @@ import { HttpExceptionFilter } from './shared/exceptions/exception-standar';
 declare const module: any;
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
   app.setGlobalPrefix('api');
   app.useGlobalFilters(new HttpExceptionFilter());
 
@@ -25,7 +26,16 @@ async function bootstrap() {
   SwaggerModule.setup('api/doc', app, document);
 
   await app.listen(3000);
-  app.enableCors();
+
+  const options: CorsOptions = {
+    origin: "*",
+    methods: "GET,PUT,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    credentials: false
+  };
+
+  app.enableCors(options);
 
   // eslint-disable-next-line prettier/prettier
   if (module.hot) {
